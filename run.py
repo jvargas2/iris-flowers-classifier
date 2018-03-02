@@ -1,7 +1,7 @@
 # Load libraries
 import pandas
-# from pandas.plotting import scatter_matrix
-# import matplotlib.pyplot as plt
+from pandas.plotting import scatter_matrix
+import matplotlib.pyplot as plt
 # from sklearn import model_selection
 # from sklearn.metrics import classification_report
 # from sklearn.metrics import confusion_matrix
@@ -17,4 +17,35 @@ import pandas
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = pandas.read_csv(url, names=names)
-print(dataset)
+
+# Shape of dataset
+print(dataset.shape)
+
+# View first 20 rows
+print(dataset.head(20))
+
+# Description of dataset
+print(dataset.describe())
+
+# Group by class and show size
+print(dataset.groupby('class').size())
+
+# Create box and whisker plots with pandas
+dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+
+# Create histogram with pandas
+dataset.hist()
+
+# Scatter plot matrix with pandas.plotting
+scatter_matrix(dataset)
+
+# Display the three charts with matplotlib.pyplot
+plt.show()
+
+# Split-out validation dataset
+# array = dataset.values
+# X = array[:,0:4]
+# Y = array[:,4]
+# validation_size = 0.20
+# seed = 7
+# X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
