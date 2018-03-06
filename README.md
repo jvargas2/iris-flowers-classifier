@@ -1,3 +1,7 @@
+# Iris Flowers Classifier
+
+This repository was made for running through this tutorial: https://machinelearningmastery.com/machine-learning-in-python-step-by-step/
+
 # Instructions
 
 1. Clone repository
